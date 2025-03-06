@@ -1,37 +1,76 @@
 # Decentralized Voting System
-A decentralized online voting application using the Ethereum Blockchain
 
-## 1. Prepare your environment
-Get the latest code from `develop` branch and proceed with the following instructions to run the application. Ensure that the required tools are installed in your environment.
-- NPM: https://nodejs.org
-- Truffle version 5.4.29: https://github.com/trufflesuite/truffle
-```
-$ npm install -g truffle@5.4.29
-```
-- Ganache: http://truffleframework.com/ganache/
-- Metamask: https://metamask.io/
+## Overview
+The **Decentralized Voting System** is a blockchain-based voting platform built with **Solidity**, **Truffle**, **Node.js**, and **Web3.js**. It ensures secure, transparent, and tamper-proof elections using Ethereum smart contracts.
 
-## Step 2. Install dependencies
-```
-$ cd DecentralizedVotingSystem
-$ npm install
-```
-## Step 3. Start Ganache
-Open the Ganache GUI client that you downloaded and installed. This will start your local blockchain instance.
+## Features
+- **Secure Voting**: Uses blockchain for transparency and integrity.
+- **Tamper-proof Elections**: Eliminates vote manipulation.
+- **Smart Contract Enforcement**: Prevents double voting.
+- **RESTful API**: Provides interaction between frontend, backend, and blockchain.
 
-## Step 4. Compile & Deploy Election Smart Contract
-```
-$ truffle migrate --reset
-```
-You must migrate the election smart contract each time your restart ganache.
+## Prerequisites
+Ensure you have the following installed:
+- **Node.js** (>= v14.0.0)
+- **NPM** (comes with Node.js)
+- **Truffle** (for smart contract management)
+- **Ganache CLI** (for local blockchain testing)
+- **Redis** (for caching, optional but recommended)
 
-## Step 5. Configure Metamask
-- Unlock Metamask
-- Connect metamask to your local Etherum blockchain provided by Ganache.
-- Import an account provided by ganache.
+## Installation
+### 1. Clone the Repository
+```bash
+git clone https://github.com/dharshini-1624/Decentralized-Voting-System.git
+cd Decentralized-Voting-System
+```
 
-## Step 6. Run the Front End Application
+### 2. Install Dependencies
+```bash
+npm install
 ```
-$ npm run dev
+
+## Smart Contract Deployment
+### 1. Compile Contracts
+```bash
+truffle compile
 ```
-You are ready!
+
+### 2. Deploy Contracts (Local Network)
+```bash
+truffle migrate --network development
+```
+- Deployed contract addresses and **ABI** are stored in `build/contracts/`.
+
+## Backend Setup
+### 1. Create a `.env` File
+Add the following details in the `.env` file:
+```
+INFURA_API_KEY=<your_infura_api_key>
+PRIVATE_KEY=<your_wallet_private_key>
+NETWORK=<Ethereum_network>
+```
+
+### 2. Start the Backend Server
+```bash
+npm start
+```
+
+## Running Tests
+### 1. Smart Contract Tests
+```bash
+truffle test
+```
+
+## How to Use
+1. Deploy the smart contracts.
+2. Run the backend server.
+3. Integrate the frontend with the backend API.
+4. Users can register, vote, and view election results securely.
+
+## Future Enhancements
+- **Gas Optimization**: Reduce transaction costs.
+- **Scalability**: Implement layer-2 solutions.
+- **User Authentication**: Improve security measures.
+
+## License
+This project is open-source and available under the MIT License.
